@@ -46,3 +46,11 @@ jobs:
     - name: Test with pytest
       run: |
         pytest ./test/unit
+    - name: Start web server
+      run: |
+        ./start-system.sh
+        sleep 10
+        curl http://localhost:3000/api/v1/
+    - name: Test with pytest
+      run: |
+        pytest ./test/integration        
