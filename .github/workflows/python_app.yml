@@ -48,7 +48,7 @@ jobs:
         pytest ./test/unit
     - name: Start web server
       run: |
-        ./start-system.sh
+        nohup python ./api/main.py &
         sleep 10
         curl http://localhost:3000/api/v1/
     - name: Test with pytest
